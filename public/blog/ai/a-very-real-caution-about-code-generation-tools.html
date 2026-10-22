@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A very real caution about code generation tools | Torin Blair</title>
+  <meta name="description" content="We hear a lot about agentic code generation, the use of AI models to create software, but there’s a deeper problem under the surface. What happens when the model’s training includes code that later turns out to be…">
+  <link rel="canonical" href="https://torinblair-sitepages.pages.dev/blog/ai/a-very-real-caution-about-code-generation-tools">
+  <link rel="alternate" type="application/rss+xml" title="Torin Blair" href="/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="/assets/css/site.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <nav class="navbar navbar-expand-md site-nav py-4">
+    <div class="container">
+      <a class="navbar-brand" href="/">Torin Blair</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-md-center">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/blog/">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow-1 py-5">
+    <div class="container">
+
+      <article class="mx-auto post-body">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/blog/">Blog</a></li>
+            <li class="breadcrumb-item"><a href="/blog/ai/">AI</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Post</li>
+          </ol>
+        </nav>
+        <header class="mb-4">
+          <h1 class="page-title">A very real caution about code generation tools</h1>
+          <p class="text-body-secondary mb-2"><time datetime="2026-08-25">August 25, 2026</time> &middot; 1 min read</p>
+          <div class="d-flex flex-wrap gap-1"><span class="tag">Artificial Intelligence Security</span></div>
+        </header>
+<p>We hear a lot about agentic code generation, the use of AI models to create software, but there’s a deeper problem under the surface.</p>
+
+<p>What happens when the model’s training includes code that later turns out to be exploitable, discovered by a tool like Mythos?</p>
+
+<p>The model cannot be easily untrained. The generated code may have been checked in two years ago. Reviewing security today is important, but developers won’t recognize every subtle pattern that was agent generated from that original vulnerable code.</p>
+
+<p>At that point, detection is no longer about a single file or a single library, it’s about patterns.</p>
+
+<ul>
+<li>You need pattern signatures for the discovered exploit.</li>
+
+<li>You need to scan across all of your codebases for those signatures.</li>
+
+<li>You need to increase the cadence of those scans as new exploit classes are discovered.</li>
+</ul>
+
+<p>And then comes the harder question: How do you remediate?</p>
+
+<ul>
+<li>Do you apply the same fix that was used in the original library?</li>
+
+<li>Or do you define a patch pattern, a secure replacement pattern, and apply it across all matching code in your organization?</li>
+</ul>
+
+<p>Start thinking today about this potential future problem.  And ensure you have solid layered defense.  </p>
+
+<p>You won&#8217;t get the same lead time to remediate as the open source maintainer. You and the attackers will see the disclosure on the same day.</p>
+        <nav class="d-flex flex-column flex-md-row justify-content-between gap-3 mt-5 pt-4 border-top"><a class="pager-link" href="/blog/ai/design-examples-with-ai">&larr; Designing a small gated AI solution</a><a class="pager-link" href="/blog/ai/preparing-for-the-growth-curve-drop-with-artificial-intelligence">Preparing for the growth curve drop with Artificial Intelligence. &rarr;</a></nav>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer py-5">
+    <div class="container small text-body-secondary d-flex flex-column flex-md-row justify-content-between gap-2">
+      <span>&copy; 2026 Torin Blair</span>
+      <span>AppSec, dotnet and database engineer. Currently focusing on the shifts in the threatscape for Artificial Intelligence and roadmaps for Post Quantum Cryptography</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

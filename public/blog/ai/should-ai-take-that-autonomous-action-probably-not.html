@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Should AI take that autonomous action?  Probably not. | Torin Blair</title>
+  <meta name="description" content="Classifying AI Actions Into Risk Levels Organizations have long classified data sensitivity to control who can access it, what can be done with it, and when it can be removed. We now need the same discipline for AI…">
+  <link rel="canonical" href="https://torinblair-sitepages.pages.dev/blog/ai/should-ai-take-that-autonomous-action-probably-not">
+  <link rel="alternate" type="application/rss+xml" title="Torin Blair" href="/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="/assets/css/site.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <nav class="navbar navbar-expand-md site-nav py-4">
+    <div class="container">
+      <a class="navbar-brand" href="/">Torin Blair</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-md-center">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/blog/">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow-1 py-5">
+    <div class="container">
+
+      <article class="mx-auto post-body">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/blog/">Blog</a></li>
+            <li class="breadcrumb-item"><a href="/blog/ai/">AI</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Post</li>
+          </ol>
+        </nav>
+        <header class="mb-4">
+          <h1 class="page-title">Should AI take that autonomous action?  Probably not.</h1>
+          <p class="text-body-secondary mb-2"><time datetime="2026-08-20">August 20, 2026</time> &middot; 2 min read</p>
+          <div class="d-flex flex-wrap gap-1"><span class="tag">Artificial Intelligence Security</span></div>
+        </header>
+<p><strong>Classifying AI Actions Into Risk Levels</strong></p>
+
+<p>Organizations have long classified data sensitivity to control who can access it, what can be done with it, and when it can be removed. We now need the same discipline for AI actions, especially in agentic systems capable of proposing or initiating changes.</p>
+
+<p>The core principle is simple:</p>
+
+<p><strong>Treat AI like a new employee with zero authorization. Every action must be gated, reviewed, or approved based on risk.</strong></p>
+
+<p>By evaluating the implications of each action, we can classify them into clear risk tiers:</p>
+
+<p><strong>Low Risk:  Autonomous action allowed</strong></p>
+
+<p>Actions with no operational, security, or regulatory impact. Examples:</p>
+
+<ul>
+<li>Summaries</li>
+
+<li>Formatting adjustments</li>
+
+<li>Basic Q&amp;A</li>
+
+<li>Non privileged recommendations</li>
+</ul>
+
+<p><strong>Medium Risk:  Human review recommended</strong></p>
+
+<p>Actions that influence code or systems but cannot directly cause harm. Examples:</p>
+
+<ul>
+<li>Code hints</li>
+
+<li>Language or documentation changes</li>
+
+<li>Model evaluation proposals</li>
+
+<li>Infrastructure suggestions</li>
+</ul>
+
+<p><strong>High Risk:  Human approval required (named risk owner)</strong></p>
+
+<p>Actions that modify systems, touch sensitive data, or affect security posture. Examples:</p>
+
+<ul>
+<li>Code check ins</li>
+
+<li>Access to sensitive data</li>
+
+<li>Infrastructure changes</li>
+
+<li>Model deployments</li>
+
+<li>Any security relevant modification</li>
+</ul>
+
+<p><strong>Critical Risk:  Dual human approval + immutable audit trail</strong></p>
+
+<p>Actions with catastrophic blast radius if incorrect. Examples:</p>
+
+<ul>
+<li>Production deployments</li>
+
+<li>Cryptographic changes</li>
+
+<li>IAM modifications</li>
+
+<li>Access to highly sensitive or regulated data</li>
+
+<li>Any action requiring pre deployment testing and scripted execution</li>
+</ul>
+
+<p><strong>Additional Key Principles</strong></p>
+
+<p><strong>1. Human authorization must use non‑spoofable, non‑replayable tokens</strong></p>
+
+<p>Approval must be cryptographically bound to a human identity and impossible for AI to forge or reuse.</p>
+
+<p><strong>2. It must be structurally impossible for AI to perform unauthorized actions</strong></p>
+
+<p>The AI should never hold privileged roles, long lived credentials, or direct access to production systems.</p>
+
+<p><strong>3. Agents must not touch production, tokens, cryptography, or IAM</strong></p>
+
+<p>For high risk or critical actions, the AI should only produce <strong>reviewable scripts or proposals</strong>, never execute them.</p>
+
+<p><strong>4. IAM and cryptographic changes must remain invisible to agents</strong></p>
+
+<p>Agents should not see, modify, or even be aware of production IAM or cryptographic configurations.</p>
+
+<p><strong>5. Provenance validation must occur outside the agent</strong></p>
+
+<p>If cryptographic provenance (SBOM/CBOM) is used, validation must be performed by a trusted external process, not by the agent itself.</p>
+
+<p><strong>6. Keep tokens out of the agent’s hands</strong></p>
+
+<p>Use <strong>one time, scoped human tokens</strong> processed by a separate, minimal execution broker that:</p>
+
+<ol>
+<li>Verifies the agent request</li>
+
+<li>Requires human approval</li>
+
+<li>Obtains a short lived, scoped token</li>
+
+<li>Executes the approved action deterministically</li>
+
+<li>Logs the action and binds it to the human risk owner</li>
+
+<li>Invalidates the token</li>
+
+<li>Wipes token and execution details from memory</li>
+
+<li>Returns only a simple success/fail back to the agent</li>
+</ol>
+
+<p>This ensures the agent never becomes privileged and cannot escalate.</p>
+        <nav class="d-flex flex-column flex-md-row justify-content-between gap-3 mt-5 pt-4 border-top"><a class="pager-link" href="/blog/ai/ais-next-frontier-autonomous-discovery-and-its-implications-for-engineers">&larr; AI’s Next Frontier: Autonomous Discovery and Its Implications for Engineers</a><a class="pager-link" href="/blog/ai/dual-model-ai-security-for-resilient-threat-detection">Dual‑Model AI Security for Resilient Threat Detection &rarr;</a></nav>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer py-5">
+    <div class="container small text-body-secondary d-flex flex-column flex-md-row justify-content-between gap-2">
+      <span>&copy; 2026 Torin Blair</span>
+      <span>AppSec, dotnet and database engineer. Currently focusing on the shifts in the threatscape for Artificial Intelligence and roadmaps for Post Quantum Cryptography</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

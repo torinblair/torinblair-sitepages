@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI’s Next Frontier: Autonomous Discovery and Its Implications for Engineers | Torin Blair</title>
+  <meta name="description" content="This is an existing post from a security perspective. And yes, I used Microsoft Copilot to translate it directly to engineer. AI is transitioning from passive inference systems to active discovery engines. Instead of…">
+  <link rel="canonical" href="https://torinblair-sitepages.pages.dev/blog/ai/ais-next-frontier-autonomous-discovery-and-its-implications-for-engineers">
+  <link rel="alternate" type="application/rss+xml" title="Torin Blair" href="/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="/assets/css/site.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <nav class="navbar navbar-expand-md site-nav py-4">
+    <div class="container">
+      <a class="navbar-brand" href="/">Torin Blair</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-md-center">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/blog/">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow-1 py-5">
+    <div class="container">
+
+      <article class="mx-auto post-body">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/blog/">Blog</a></li>
+            <li class="breadcrumb-item"><a href="/blog/ai/">AI</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Post</li>
+          </ol>
+        </nav>
+        <header class="mb-4">
+          <h1 class="page-title">AI’s Next Frontier: Autonomous Discovery and Its Implications for Engineers</h1>
+          <p class="text-body-secondary mb-2"><time datetime="2026-08-19">August 19, 2026</time> &middot; 2 min read</p>
+          <div class="d-flex flex-wrap gap-1"><span class="tag">Artificial Intelligence Security</span></div>
+        </header>
+<p>This is an existing post from a security perspective.  And yes, I used Microsoft Copilot to translate it directly to engineer.  </p>
+
+<p>AI is transitioning from passive inference systems to active discovery engines. Instead of simply summarizing human knowledge, modern models and agentic frameworks can generate novel hypotheses, run structured reasoning loops, and explore scientific search spaces through simulation and optimization. This shift changes how engineering teams must think about architecture, safety, and reliability.</p>
+
+<p><strong>1. Models don’t “discover” — they optimize within constraints</strong></p>
+
+<p>Frontier models do not form conclusions or update their own beliefs.</p>
+
+<p>They generate candidate solutions by optimizing over:</p>
+
+<ul>
+<li>training distributions</li>
+
+<li>objective functions</li>
+
+<li>agent‑defined evaluation loops</li>
+
+<li>external simulators or scoring functions</li>
+</ul>
+
+<p>Discovery emerges from <strong>search</strong>, not intuition.</p>
+
+<p><strong>2. Autonomous discovery is an agent problem, not a model problem</strong></p>
+
+<p>The model is stateless at inference.&nbsp; The <em>agent</em> is stateful.</p>
+
+<p>Agents perform:</p>
+
+<ul>
+<li>iterative reasoning</li>
+
+<li>branching search</li>
+
+<li>hypothesis refinement</li>
+
+<li>simulation‑based evaluation</li>
+
+<li>constraint enforcement</li>
+
+<li>rollback and restart</li>
+</ul>
+
+<p>The “millions of trials” are <strong>agent‑driven loops</strong>, not model retraining.</p>
+
+<p><strong>3. The real risk is objective misalignment, not model drift</strong></p>
+
+<p>Models don’t drift during inference.</p>
+
+<p>But agents can optimize toward harmful or nonsensical outputs if:</p>
+
+<ul>
+<li>the reward function is underspecified</li>
+
+<li>constraints are weak or missing</li>
+
+<li>evaluators are brittle</li>
+
+<li>simulators produce misleading signals</li>
+
+<li>search space boundaries are not enforced</li>
+</ul>
+
+<p>Competent optimization toward the wrong goal is the primary failure mode.</p>
+
+<p><strong>4. Data governance matters more than model governance</strong></p>
+
+<p>Models do not retain user data unless explicitly fine‑tuned.</p>
+
+<p>But the <em>surrounding system</em> can:</p>
+
+<ul>
+<li>log sensitive inputs</li>
+
+<li>store agent state</li>
+
+<li>accumulate prompts</li>
+
+<li>feed data into fine‑tuning pipelines</li>
+
+<li>leak information through evaluation traces</li>
+</ul>
+
+<p>Engineering teams must treat data pipelines as the real risk surface.</p>
+
+<p><strong>5. Scientific ML requires reproducibility and deterministic scaffolding</strong></p>
+
+<p>Autonomous discovery systems must be built with:</p>
+
+<ul>
+<li>deterministic evaluation functions</li>
+
+<li>reproducible simulation environments</li>
+
+<li>versioned agent states</li>
+
+<li>strict rollback semantics</li>
+
+<li>audit logs for every reasoning step</li>
+
+<li>sandboxed execution for high‑risk domains (bio, chem, security)</li>
+</ul>
+
+<p>Without this, results cannot be trusted or validated.</p>
+
+<p><strong>6. Expectation management: early systems will be noisy</strong></p>
+
+<p>AI‑augmented discovery is not plug‑and‑play.</p>
+
+<p>Engineering teams should expect:</p>
+
+<ul>
+<li>high variance in early outputs</li>
+
+<li>brittle reasoning chains</li>
+
+<li>hallucinated hypotheses</li>
+
+<li>sensitivity to prompt structure</li>
+
+<li>inconsistent agent behavior across runs</li>
+</ul>
+
+<p>Reliability emerges only after:</p>
+
+<ul>
+<li>constraint tuning</li>
+
+<li>evaluator hardening</li>
+
+<li>reward shaping</li>
+
+<li>domain‑specific fine‑tuning</li>
+</ul>
+
+<p>• • continuous human oversight</p>
+        <nav class="d-flex flex-column flex-md-row justify-content-between gap-3 mt-5 pt-4 border-top"><a class="pager-link" href="/blog/ai/ais-next-frontier-autonomous-discovery-and-its-implications-for-leadership">&larr; AI’s Next Frontier: Autonomous Discovery and Its Implications for Leadership</a><a class="pager-link" href="/blog/ai/should-ai-take-that-autonomous-action-probably-not">Should AI take that autonomous action?  Probably not. &rarr;</a></nav>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer py-5">
+    <div class="container small text-body-secondary d-flex flex-column flex-md-row justify-content-between gap-2">
+      <span>&copy; 2026 Torin Blair</span>
+      <span>AppSec, dotnet and database engineer. Currently focusing on the shifts in the threatscape for Artificial Intelligence and roadmaps for Post Quantum Cryptography</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

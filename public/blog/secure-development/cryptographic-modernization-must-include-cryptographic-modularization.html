@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cryptographic Modernization must include Cryptographic Modularization | Torin Blair</title>
+  <meta name="description" content="We are on the horizon of two significant technological shifts: Agentic Artificial Intelligence and Quantum Computing. Both are a threat to the existing cryptographic structures that protect our most sensitive data…">
+  <link rel="canonical" href="https://torinblair-sitepages.pages.dev/blog/secure-development/cryptographic-modernization-must-include-cryptographic-modularization">
+  <link rel="alternate" type="application/rss+xml" title="Torin Blair" href="/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="/assets/css/site.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <nav class="navbar navbar-expand-md site-nav py-4">
+    <div class="container">
+      <a class="navbar-brand" href="/">Torin Blair</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-md-center">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/blog/">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow-1 py-5">
+    <div class="container">
+
+      <article class="mx-auto post-body">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/blog/">Blog</a></li>
+            <li class="breadcrumb-item"><a href="/blog/secure-development/">Secure Development</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Post</li>
+          </ol>
+        </nav>
+        <header class="mb-4">
+          <h1 class="page-title">Cryptographic Modernization must include Cryptographic Modularization</h1>
+          <p class="text-body-secondary mb-2"><time datetime="2026-09-04">September 4, 2026</time> &middot; 1 min read</p>
+          <div class="d-flex flex-wrap gap-1"><span class="tag">Post Quantum Cryptography Roadmap</span> <span class="tag">Secure Development</span></div>
+        </header>
+<p>We are on the horizon of two significant technological shifts:&nbsp; Agentic Artificial Intelligence and Quantum Computing. &nbsp;</p>
+
+<p>Both are a threat to the existing cryptographic structures that protect our most sensitive data. &nbsp;</p>
+
+<p>Artificial Intelligence will enhance several Key Derivation Attack vectors against Symmetric Cryptography, and Quantum Computing will leverage Shor’s algorithm to easily derive the private key from the public key within hours or days.&nbsp; Once that private key is known, everything it has ever protected will be trivial to decrypt on normal computing machinery, most notably, the plaintext symmetric keys that are exchanged for encryption of TLS traffic. &nbsp;</p>
+
+<p>You should be thinking about your code in terms of a “Builder” that can chain together modules to perform your function, including.</p>
+
+<p>Modules that should exist and be easily swappable:</p>
+
+<ol>
+<li>Your Hashing methods.</li>
+
+<li>Your Key Derivation methods.</li>
+
+<li>Your Key or Input Key Material storage.</li>
+
+<li>Your Chosen Symmetric Algorithm</li>
+
+<li>Your Chosen Asymmetric Algorithm</li>
+
+<li>Your Asymmetric Key storage (even if it is a certificate, be prepared for “if” that shifts to a Secrets Management System style Key Store, TPM backing, HSM backing, etc).</li>
+</ol>
+
+<p>Additional Considerations to simplify any future enhancements.  </p>
+
+<ol>
+<li>Your Additional Auth Data for Cryptography</li>
+
+<li>Your Salt input for Key Derivation </li>
+
+<li>Your Input Key Material support code.  Highly sensitive, so strive to keep this in memory for a millisecond or less where possible.  </li>
+</ol>
+
+<p>If any of the algorithms, methods or storage methods are compromised or weak, you simplify your cutover and save months of time by swapping out these re-usable modules. &nbsp;</p>
+
+<p>We are living in a time where weaknesses will be found faster than ever imagined.&nbsp; The deprecations will come, and you will be better prepared to manage those if you can modularize every use case in your stack. &nbsp;</p>
+        <nav class="d-flex flex-column flex-md-row justify-content-between gap-3 mt-5 pt-4 border-top"><a class="pager-link" href="/blog/ai/chain-of-ownership-for-accountability-with-agentic-actions-and-ai-models">&larr; Chain of Ownership for Accountability with Agentic Actions and AI Models</a><a class="pager-link" href="/blog/secure-development/protecting-secrets-in-the-age-of-agentic-attacks">Protecting Secrets in the Age of Agentic Attacks &rarr;</a></nav>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer py-5">
+    <div class="container small text-body-secondary d-flex flex-column flex-md-row justify-content-between gap-2">
+      <span>&copy; 2026 Torin Blair</span>
+      <span>AppSec, dotnet and database engineer. Currently focusing on the shifts in the threatscape for Artificial Intelligence and roadmaps for Post Quantum Cryptography</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

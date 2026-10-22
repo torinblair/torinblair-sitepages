@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Coding and Sensitive Security Information | Torin Blair</title>
+  <meta name="description" content="I decided to test how well Claude Code handles sensitive information, and the results were revealing. Claude can generate reliable code, test it, iterate on it, write benchmark tests, and ensure it functions per the…">
+  <link rel="canonical" href="https://torinblair-sitepages.pages.dev/blog/ai/ai-coding-and-sensitive-security-information">
+  <link rel="alternate" type="application/rss+xml" title="Torin Blair" href="/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="/assets/css/site.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <nav class="navbar navbar-expand-md site-nav py-4">
+    <div class="container">
+      <a class="navbar-brand" href="/">Torin Blair</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-md-center">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/blog/">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow-1 py-5">
+    <div class="container">
+
+      <article class="mx-auto post-body">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/blog/">Blog</a></li>
+            <li class="breadcrumb-item"><a href="/blog/ai/">AI</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Post</li>
+          </ol>
+        </nav>
+        <header class="mb-4">
+          <h1 class="page-title">AI Coding and Sensitive Security Information</h1>
+          <p class="text-body-secondary mb-2"><time datetime="2026-09-16">September 16, 2026</time> &middot; 1 min read</p>
+          <div class="d-flex flex-wrap gap-1"><span class="tag">Artificial Intelligence Security</span> <span class="tag">Secure Development</span> <span class="tag">Security Threats</span></div>
+        </header>
+<p>I decided to test how well Claude Code handles sensitive information, and the results were revealing. Claude can generate reliable code, test it, iterate on it, write benchmark tests, and ensure it functions per the unit tests. But when it comes to engineering and security, it falls short.</p>
+
+<p>To push the limits, I started building a hardened set of security functions designed to protect credentials on the host machine.&nbsp;</p>
+
+<p>The goal was simple: take already encrypted secrets and a plain data encryption key delivered from a CI/CD pipeline, and ensure they are protected with minimal exposure in memory.</p>
+
+<p>The code itself took three days to write and test. The actual security and engineering review has taken two weeks.  This includes cross checking with other AI systems, manually auditing every memory boundary, and making adjustments to minimize the lifetime of any plaintext secret.</p>
+
+<p>This is where the gap lives.</p>
+
+<p>Claude writes code, but it also writes from a broad historical base. Many of the patterns it uses were reliable earlier in the decade. But the attacks we face today are new. They’re agentic, automated, adaptive, and increasingly capable of exploiting subtle memory safety lapses or host level credential exposure.</p>
+
+<p>That’s why the role of the engineer who can truly think through these problems is more critical than ever. We’re no longer just writing code, we’re translating requirements into real engineering constraints.  This includes designing pseudocode that enforces security boundaries, rewriting classes when necessary, and even teaching the AI what secure patterns look like.</p>
+
+<p>AI accelerates development. But <strong>security still requires an engineer who understands the threat model, the memory model, and the attack model.</strong> That part hasn’t changed, and it’s becoming more important every day.</p>
+        <nav class="d-flex flex-column flex-md-row justify-content-between gap-3 mt-5 pt-4 border-top"><a class="pager-link" href="/blog/secure-development/protecting-secrets-in-the-age-of-agentic-attacks">&larr; Protecting Secrets in the Age of Agentic Attacks</a><span></span></nav>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer py-5">
+    <div class="container small text-body-secondary d-flex flex-column flex-md-row justify-content-between gap-2">
+      <span>&copy; 2026 Torin Blair</span>
+      <span>AppSec, dotnet and database engineer. Currently focusing on the shifts in the threatscape for Artificial Intelligence and roadmaps for Post Quantum Cryptography</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Designing a small gated AI solution | Torin Blair</title>
+  <meta name="description" content="For Artificial Intelligence driven or augmented applications, it’s critical that we begin with determining what policy needs to be applied to agentic actions and how we authorize those actions against a known user’s…">
+  <link rel="canonical" href="https://torinblair-sitepages.pages.dev/blog/ai/design-examples-with-ai">
+  <link rel="alternate" type="application/rss+xml" title="Torin Blair" href="/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="/assets/css/site.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <nav class="navbar navbar-expand-md site-nav py-4">
+    <div class="container">
+      <a class="navbar-brand" href="/">Torin Blair</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-md-center">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/blog/">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow-1 py-5">
+    <div class="container">
+
+      <article class="mx-auto post-body">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/blog/">Blog</a></li>
+            <li class="breadcrumb-item"><a href="/blog/ai/">AI</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Post</li>
+          </ol>
+        </nav>
+        <header class="mb-4">
+          <h1 class="page-title">Designing a small gated AI solution</h1>
+          <p class="text-body-secondary mb-2"><time datetime="2026-08-25">August 25, 2026</time> &middot; 3 min read</p>
+          <div class="d-flex flex-wrap gap-1"><span class="tag">Artificial Intelligence Security</span></div>
+        </header>
+<p>For Artificial Intelligence driven or augmented applications, it’s critical that we begin with determining what policy needs to be applied to agentic actions and how we authorize those actions against a known user’s permission set using deterministic actions. &nbsp;</p>
+
+<p>Consider a simple security scenario, you are preparing to move forward with an initiative to better manage your allowed TLS cipher suites across a number of systems.  What would the break down of this problem look like?  What belongs under the management of the code rather than the model?</p>
+
+<p>Code controlled.  Authorized users.</p>
+
+<ul>
+<li>Certain users who are authorized to view and report</li>
+
+<li>Scans that track what suites are available on your different systems</li>
+
+<li>Users who are authorized to create the proposed change for a set of machines</li>
+
+<li>Authorizers for the proposed change</li>
+
+<li>Second reviewer to approve the technical change </li>
+
+<li>Scheduler to schedule the change</li>
+
+<li>Authorized user who can implement those changes</li>
+</ul>
+
+<p>Code controlled.  Policies.</p>
+
+<ul>
+<li>The preferred order for allowed cipher suites</li>
+
+<li>The matrix of who is authorized to perform what actions</li>
+
+<li>Privileged tokens or accounts must be used for changes</li>
+
+<li>Logging and monitoring requirements for the change</li>
+
+<li>New ciphers must not be newer than 6 months old to avoid the bleeding edge</li>
+
+<li>Ciphers must be in the strong or very strong categories</li>
+
+<li>When strong ciphers are unused, the system should use only very strong ciphers</li>
+
+<li>Weak ciphers are allowed only with special sign off for specific systems</li>
+
+<li>TLS 1.3 or Post Quantum Ciphers are allowed</li>
+
+<li>TLS 1.2 is allowed if it uses Elliptic Curve for Key Exchange and AES in GCM mode for symmetric encryption</li>
+
+<li>AES and CBC mode is only allowed if patched for the current CBC exploits for the platform</li>
+
+<li>Ciphers outside of the very strong category must be disabled if unused for 90 days</li>
+</ul>
+
+<p>Code controlled. Deterministic actions.</p>
+
+<ul>
+<li>Powershell to adjust SChannel policies on Windows machines</li>
+
+<li>Application of Group Policy, if controlled on Windows by Active Directory</li>
+
+<li>Bash script to adjust cipher suites on Apache</li>
+
+<li>Bash script to adjust cipher suites on Tomcat</li>
+
+<li>Bash script to adjust cipher suites on Nginx</li>
+
+<li>Bash script to adjust cipher suites on OpenSSL</li>
+
+<li>Bash script to adjust cipher suites on OpenSSH</li>
+
+<li>Writing the batch script for multiple machine or software changes at once</li>
+
+<li>Logging for each change to each machine as it occurs</li>
+
+<li>Proposing the change</li>
+
+<li>Approvals</li>
+
+<li>Reviews to ensure the staged change meets standards</li>
+
+<li>Scheduling of change</li>
+</ul>
+
+<p><strong>So where does the model fit? </strong></p>
+
+<p>It can advise and recommend actions based on changes on the threat scape of various TLS cipher suites.  </p>
+
+<p>It can monitor for when a system no longer uses a cipher that is weak and has not been accessed for 90 days. &nbsp;</p>
+
+<p>It can batch together a set of changes for many machines into a single repeatable set of action recommendations. &nbsp;</p>
+
+<p>How it should be batched to ensure zero down time.</p>
+
+<p>But then the batched changes should be assembled in code that creates a scripted set of changes. &nbsp;</p>
+
+<p>This keeps the ownership of human tokens, just in time access and policy with real coded or code configured gates.  And the actions that are generated are owned by humans who review and validate those actions meet your standard.  </p>
+
+<p>Design defensively, code defensively and you&#8217;ll keep your systems stable and secure.  </p>
+        <nav class="d-flex flex-column flex-md-row justify-content-between gap-3 mt-5 pt-4 border-top"><a class="pager-link" href="/blog/ai/dual-model-ai-security-for-resilient-threat-detection">&larr; Dual‑Model AI Security for Resilient Threat Detection</a><a class="pager-link" href="/blog/ai/a-very-real-caution-about-code-generation-tools">A very real caution about code generation tools &rarr;</a></nav>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer py-5">
+    <div class="container small text-body-secondary d-flex flex-column flex-md-row justify-content-between gap-2">
+      <span>&copy; 2026 Torin Blair</span>
+      <span>AppSec, dotnet and database engineer. Currently focusing on the shifts in the threatscape for Artificial Intelligence and roadmaps for Post Quantum Cryptography</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

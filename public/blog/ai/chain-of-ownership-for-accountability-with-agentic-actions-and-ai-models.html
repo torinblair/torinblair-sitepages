@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chain of Ownership for Accountability with Agentic Actions and AI Models | Torin Blair</title>
+  <meta name="description" content="Disclaimer: This is a new idea today, it is not fully baked, nor is it implemented. But it is a place to start for a chain of accountability ownership with our agentic actions. As organizations begin adopting agentic…">
+  <link rel="canonical" href="https://torinblair-sitepages.pages.dev/blog/ai/chain-of-ownership-for-accountability-with-agentic-actions-and-ai-models">
+  <link rel="alternate" type="application/rss+xml" title="Torin Blair" href="/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="/assets/css/site.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <nav class="navbar navbar-expand-md site-nav py-4">
+    <div class="container">
+      <a class="navbar-brand" href="/">Torin Blair</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-md-center">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/blog/">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow-1 py-5">
+    <div class="container">
+
+      <article class="mx-auto post-body">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/blog/">Blog</a></li>
+            <li class="breadcrumb-item"><a href="/blog/ai/">AI</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Post</li>
+          </ol>
+        </nav>
+        <header class="mb-4">
+          <h1 class="page-title">Chain of Ownership for Accountability with Agentic Actions and AI Models</h1>
+          <p class="text-body-secondary mb-2"><time datetime="2026-09-02">September 2, 2026</time> &middot; 3 min read</p>
+          <div class="d-flex flex-wrap gap-1"><span class="tag">Artificial Intelligence Security</span></div>
+        </header>
+<p><em>Disclaimer:  This is a new idea today, it is not fully baked, nor is it implemented.  But it is a place to start for a chain of accountability ownership with our agentic actions.  </em></p>
+
+<p>As organizations begin adopting agentic systems, it is important to treat agent‑driven actions with the same rigor applied to software deployments. In software, every build and deployment has a clear Chain of Ownership.&nbsp;</p>
+
+<p>Agentic actions should follow the same pattern: each action is an operational artifact, and each artifact must have a traceable, non‑repudiable chain of custody.</p>
+
+<p>A centralized database can track signatures and approvals today. Over time, cryptographic signatures may be added, but the governance structure should be established now.</p>
+
+<p><strong>Agentic Action Ownership</strong></p>
+
+<p>Agentic actions should follow a familiar accountability flow:</p>
+
+<ol>
+<li><strong>Development Team</strong>: Designs the action logic and owns its correctness.</li>
+
+<li><strong>Implementation Team</strong>: Receives a signed handoff and is accountable for implementing the action safely and accurately.</li>
+
+<li><strong>Testing / QA</strong>: Validates the action and signs off that it behaves as expected.</li>
+
+<li><strong>Environment Owner (Segment Owner or Operations Lead)</strong>: Confirms the action works correctly in the real environment and assumes long term ownership of its outcomes.</li>
+</ol>
+
+<p>This ensures every action has a clear owner at every stage for the accountability of an action.</p>
+
+<p><strong>Model Ownership</strong></p>
+
+<p>Model ownership should mirror data ownership:</p>
+
+<ol>
+<li><strong>Model Owner (Business or Segment Owner)</strong>: Defines acceptable use and participates in design.</li>
+
+<li><strong>Development Team</strong>: Owns the model during creation and early testing.</li>
+
+<li><strong>Implementation Team</strong>: Owns the model during deployment and integration.</li>
+
+<li><strong>Testing / QA</strong>: Validates the model’s behavior and signs off.</li>
+
+<li><strong>Model Owner</strong>: Assumes long term accountability for how the model behaves in production.</li>
+</ol>
+
+<p>This gives business leadership clear visibility into who owns the model and its outcomes.</p>
+
+<p><strong>Model Maintenance</strong></p>
+
+<p>Model maintenance follows the same chain as model ownership, with one key requirement:</p>
+
+<ul>
+<li>The Model Maintainer must be a designated role authorized by the Model Owner.</li>
+</ul>
+
+<p>This ensures controlled, accountable evolution of the model.</p>
+
+<p>Once refined and maintained, the new version of the model will be deployed and accountability will chain as it did in the initial deployment chain.</p>
+
+<p><strong>Edge Case Refinement</strong></p>
+
+<p>Agentic systems will encounter situations where no deterministic action can be taken. These cases reveal gaps in logic, data, or business rules. Ownership must be explicitly assigned:</p>
+
+<ul>
+<li><strong>Repository Owner</strong> (Operations or Production Support): Owns storage and audit trail of failed or indeterminate cases.</li>
+
+<li><strong>Refinement Decision Owner</strong> (Model Owner or Segment Owner): Decides whether refinement is required.</li>
+
+<li><strong>Refinement Executor</strong> (Model Maintainer / Development Team): Performs the refinement work.</li>
+</ul>
+
+<p>This prevents unowned failures and ensures continuous improvement.</p>
+
+<p><strong>Example: Multi‑Service Deployment Scheduling</strong></p>
+
+<p>A deployment involving multiple upstream and downstream dependencies may produce cases where no acceptable time window exists. These failures must be:</p>
+
+<ul>
+<li>captured</li>
+
+<li>reviewed</li>
+
+<li>assigned</li>
+
+<li>refined</li>
+</ul>
+
+<p>And each step must have a clear owner.</p>
+
+<p><strong>Key Questions Before Deploying Agentic Systems</strong></p>
+
+<p>Every organization should be able to answer:</p>
+
+<ul>
+<li>Who owns each agentic action?</li>
+
+<li>Who is accountable for its outcome?</li>
+
+<li>Who owns the model?</li>
+
+<li>Who maintains the model?</li>
+
+<li>Who owns the edge cases the model cannot resolve?</li>
+
+<li>How is all of this tracked and signed?</li>
+</ul>
+
+<p>If these answers are not clear, the organization is not ready to deploy agentic applications.</p>
+        <nav class="d-flex flex-column flex-md-row justify-content-between gap-3 mt-5 pt-4 border-top"><a class="pager-link" href="/blog/ai/designing-for-attack-containment-and-rebuild">&larr; Designing for Attack Containment and Rebuild</a><a class="pager-link" href="/blog/secure-development/cryptographic-modernization-must-include-cryptographic-modularization">Cryptographic Modernization must include Cryptographic Modularization &rarr;</a></nav>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer py-5">
+    <div class="container small text-body-secondary d-flex flex-column flex-md-row justify-content-between gap-2">
+      <span>&copy; 2026 Torin Blair</span>
+      <span>AppSec, dotnet and database engineer. Currently focusing on the shifts in the threatscape for Artificial Intelligence and roadmaps for Post Quantum Cryptography</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
