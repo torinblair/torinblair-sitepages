@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Designing for Attack Containment and Rebuild | Torin Blair</title>
+  <meta name="description" content="Designing for perfect prevention of attacks with an AI adversary is not possible at this time. Now, more than ever, is the time to plan for when you are attacked, not if. Preparing for Agentic Attacks: What You Can Do…">
+  <link rel="canonical" href="https://torinblair-sitepages.pages.dev/blog/ai/designing-for-attack-containment-and-rebuild">
+  <link rel="alternate" type="application/rss+xml" title="Torin Blair" href="/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="/assets/css/site.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <nav class="navbar navbar-expand-md site-nav py-4">
+    <div class="container">
+      <a class="navbar-brand" href="/">Torin Blair</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-md-center">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/blog/">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow-1 py-5">
+    <div class="container">
+
+      <article class="mx-auto post-body">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/blog/">Blog</a></li>
+            <li class="breadcrumb-item"><a href="/blog/ai/">AI</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Post</li>
+          </ol>
+        </nav>
+        <header class="mb-4">
+          <h1 class="page-title">Designing for Attack Containment and Rebuild</h1>
+          <p class="text-body-secondary mb-2"><time datetime="2026-09-01">September 1, 2026</time> &middot; 6 min read</p>
+          <div class="d-flex flex-wrap gap-1"><span class="tag">Artificial Intelligence Security</span> <span class="tag">Secure Development</span></div>
+        </header>
+<p>Designing for perfect prevention of attacks with an AI adversary is not possible at this time. &nbsp;</p>
+
+<p>Now, more than ever, is the time to plan for when you are attacked, not if. &nbsp;</p>
+
+<p><strong>Preparing for Agentic Attacks: What You Can Do Starting Today</strong>.</p>
+
+<p><strong>Outbound Traffic Control</strong>:</p>
+
+<p>Lock down your data egress first. It’s the only part of the system where you can impose hard, deterministic guarantees today.</p>
+
+<p>Everything else builds on that foundation.</p>
+
+<p><strong>File System Monitoring</strong></p>
+
+<p>Use strong file integrity monitoring (FIM).&nbsp; Consider technologies like Wazuh, OSQuery, EDR, whatever fits your stack.</p>
+
+<p>Don’t rely solely on generic allow‑lists. Validate binaries, scripts, and libraries against:</p>
+
+<ul>
+<li>Your OS baseline</li>
+
+<li>Your Software version’s Bill of Materials</li>
+
+<li>Your actual system profile</li>
+</ul>
+
+<p>An agentic attacker can easily drop a file with a name that existed on Windows NT4 but has no business being on Windows 2025. Your monitoring should know the difference.</p>
+
+<p><strong>Container Hardening</strong></p>
+
+<p>Lock down containers so they can’t reach beyond their intended scope.</p>
+
+<ul>
+<li>Restrict syscalls with seccomp, AppArmor, or SELinux</li>
+
+<li>Use sandboxing layers like gVisor or Kata Containers to intercept kernel interactions</li>
+
+<li>Enforce minimal runtime permissions and isolate workloads aggressively</li>
+</ul>
+
+<p>You can explicitly control what any running process can do down to the kernel layer.&nbsp; Use it. &nbsp;</p>
+
+<p><strong>Network Routes</strong></p>
+
+<p>Apply Deny by Default everywhere.</p>
+
+<ul>
+<li>Block all inbound and outbound traffic by default</li>
+
+<li>Allow list only what each application or container truly needs</li>
+
+<li>Enforce strict egress filtering</li>
+
+<li>Control DNS so agents cannot exfiltrate data through clever domain lookups</li>
+</ul>
+
+<p>Do this inside your applications and containers, not just at the perimeter.</p>
+
+<p><strong>Infrastructure as Code</strong></p>
+
+<p>If you can’t wipe and rebuild a compromised environment in under four hours, decide whether you can afford that downtime. If not, start shifting now.</p>
+
+<p>Use:</p>
+
+<ul>
+<li>IaC for reproducible environments</li>
+
+<li>Golden images for clean rebuilds</li>
+
+<li>Secrets management so nothing sensitive is baked into machines</li>
+
+<li>Automated provisioning so recovery is fast and predictable</li>
+</ul>
+
+<p>Agentic attacks will force you to rebuild more often than you expect.</p>
+
+<p><strong>Telemetry</strong></p>
+
+<p>You need complete, multi layer telemetry:</p>
+
+<ul>
+<li>Application</li>
+
+<li>Agent and tool calls</li>
+
+<li>Model interactions</li>
+
+<li>OS</li>
+
+<li>Network</li>
+</ul>
+
+<p>If you’re missing signals at any layer, prioritize closing those gaps immediately.</p>
+
+<p>And no, Claude Code or any other coding assistant cannot design your telemetry strategy for you. This must be engineered deliberately.</p>
+
+<p><strong>Agent Identity and Tool Governance</strong></p>
+
+<p>This is the part most companies miss.</p>
+
+<ul>
+<li>Give every agent, tool, and service its own least privilege identity</li>
+
+<li>Restrict agents to a small, audited set of tools</li>
+
+<li>Wrap all outbound agent responses in a policy engine that enforces schemas, redacts secrets, and blocks high risk content</li>
+</ul>
+
+<p>This is how you prevent an agent from becoming an exfiltration vector.</p>
+
+<p><strong>Automate Credential Rotation</strong></p>
+
+<p>Assume you will have 100 credential rotations you need to apply within an hour due to an Agentic attack.&nbsp; Are you prepared to respond?</p>
+
+<ul>
+<li>Create an interface to your credential rotation</li>
+
+<li>The underlying functions should
+<ul>
+<li>Notify all owners of the affected credential</li>
+
+<li>Rotate the credential on the system of record</li>
+
+<li>Actually update the password in the authentication and authorization system (LDAP, etc)</li>
+
+<li>Have a mapping of where those credentials need to go for each application that uses the secret</li>
+
+<li>Stage a Push or Pull to the runtime destination for those secrets, (KeyVault, Vault, etc)</li>
+
+<li>Simple human authorization step to update those credentials to destination</li>
+
+<li>Trigger a restart cycle on the necessary endpoints for those credential updates</li>
+</ul>
+</li>
+
+<li>Additional consideration:  Support N and N-1 versions of the credentials if feasible for a limited time window.  </li>
+</ul>
+
+<p>This allows your organization to effectively respond to compromised credentials. &nbsp;</p>
+
+<p><strong>Secrets Protection</strong></p>
+
+<p>Code as if the attacker is running a memory profiler against your application.&nbsp; Use the following strategy for protection:</p>
+
+<ul>
+<li>All secrets are encrypted on delivery to the machine or ephemeral file system</li>
+
+<li>The only plain byte value is a cryptographically random data encryption key</li>
+
+<li>The plain byte value gets placed to an ephemeral mount file on container, or injected similarly to an infrastructure system.  (Memory only preferred)</li>
+
+<li>A separate tiny process runs as the application user.  It wraps that data encryption key in a key encryption key that will:
+<ul>
+<li>Derive 32 cryptographically strong random bytes</li>
+
+<li>Use this as the key input material for a Key Derivation Function</li>
+
+<li>Inject the key to a user scoped, TPM backed location.
+<ul>
+<li>On containers, treat application shut down like container disposal</li>
+
+<li>And inject the key derivation input key material (ikm) directly into the kernel keyring</li>
+</ul>
+</li>
+
+<li>Encrypt the data encryption key using this derived key and replace the existing bytes in memory with this new encrypted key.  </li>
+</ul>
+</li>
+</ul>
+
+<p>Minimize the time the secrets are plain on the machine.&nbsp; The strongest method is to encrypt during delivery and only leave the data encryption key plain for milliseconds during container or application startup. &nbsp;</p>
+
+<p><strong>Modularize your Cryptography</strong></p>
+
+<p>It can be tempting to lean into hard coding your cryptography.&nbsp; But it makes it tougher to respond to compromise of the key, key input material, algorithm weakness, etc.&nbsp; This applies not only to Artificial Intelligence, but also Post Quantum Cryptography. &nbsp;</p>
+
+<p>Modularization:&nbsp; Use object oriented principles to allow for simple swap in/swap out of cryptographic parts of your encryption. &nbsp;</p>
+
+<p>Design your cryptographic usage so you can easily swap out weak or compromised parts:</p>
+
+<ul>
+<li>Keep the key or key derivation input user scoped</li>
+
+<li>Keep it a 32 byte cryptographic random that is difficult to guess.  It’s stronger than clever coding and replacement takes seconds, not three months of coding.  </li>
+
+<li>Modularize the Encryption Algorithm:  Use AES GCM 256, but write the core encryption that accepts in nonce, plain bytes, encrypted bytes, derived key, additional data into an abstract or interface method.</li>
+
+<li>Modularize the Key Derivation:  Similarly use a 64 byte salt, 32 byte key input, random length info and iterations to an algorithm such as PBKDF2.  But wrap it into an abstract or interface method.</li>
+
+<li>Combine the usage into a simplified method for encrypt/decrypt operations.  An AbstractKeyWrappedKey or IKeyWrappedKey.  </li>
+
+<li>Design your library in a way that will encourage users to only reveal the secret to stack memory, not heap.  </li>
+
+<li>Decrypt the secret for only a tiny nanosecond window in a small method or small try/catch block and zero out that memory block the moment the sensitive plain bytes/text are no longer needed.  </li>
+</ul>
+
+<p>Minimize the time the secrets are plain on the machine.&nbsp; It was virtually impossible for an attacker to gain access to run a memory profiler.&nbsp; But it may become trivial in the age of Artificial Intelligence driven attacks. &nbsp;</p>
+
+<p><strong>Final Takeaway</strong></p>
+
+<ul>
+<li>We will not know the shapes or patterns of agentic attacks.</li>
+
+<li>AI will evade traditional detections:  It can read, learn, and adapt to your existing detection methods.</li>
+
+<li>The realistic goal is blast‑radius minimization, not perfect prevention.</li>
+
+<li>Design for containment, rapid rebuild, and strict outbound control.</li>
+</ul>
+
+<p>That’s how you stay ahead of what’s coming.</p>
+        <nav class="d-flex flex-column flex-md-row justify-content-between gap-3 mt-5 pt-4 border-top"><a class="pager-link" href="/blog/ai/preparing-for-the-growth-curve-drop-with-artificial-intelligence">&larr; Preparing for the growth curve drop with Artificial Intelligence.</a><a class="pager-link" href="/blog/ai/chain-of-ownership-for-accountability-with-agentic-actions-and-ai-models">Chain of Ownership for Accountability with Agentic Actions and AI Models &rarr;</a></nav>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer py-5">
+    <div class="container small text-body-secondary d-flex flex-column flex-md-row justify-content-between gap-2">
+      <span>&copy; 2026 Torin Blair</span>
+      <span>AppSec, dotnet and database engineer. Currently focusing on the shifts in the threatscape for Artificial Intelligence and roadmaps for Post Quantum Cryptography</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Torin Blair</title>
+    <link>https://torinblair-sitepages.pages.dev/</link>
+    <description>AppSec, dotnet and database engineer. Currently focusing on the shifts in the threatscape for Artificial Intelligence and roadmaps for Post Quantum Cryptography</description>
+    <item>
+      <title>AI Coding and Sensitive Security Information</title>
+      <link>https://torinblair-sitepages.pages.dev/blog/ai/ai-coding-and-sensitive-security-information</link>
+      <guid>https://torinblair-sitepages.pages.dev/blog/ai/ai-coding-and-sensitive-security-information</guid>
+      <pubDate>Wed, 16 Sep 2026 12:59:03 -0600</pubDate>
+      <description>I decided to test how well Claude Code handles sensitive information, and the results were revealing. Claude can generate reliable code, test it, iterate on it, write benchmark tests, and ensure it functions per the…</description>
+    </item>
+    <item>
+      <title>Protecting Secrets in the Age of Agentic Attacks</title>
+      <link>https://torinblair-sitepages.pages.dev/blog/secure-development/protecting-secrets-in-the-age-of-agentic-attacks</link>
+      <guid>https://torinblair-sitepages.pages.dev/blog/secure-development/protecting-secrets-in-the-age-of-agentic-attacks</guid>
+      <pubDate>Tue, 15 Sep 2026 15:44:29 -0600</pubDate>
+      <description>Modern defensive patterns for preventing autonomous credential compromise Agentic attacks have changed the threat landscape. Once an autonomous adversarial system gains access to a credential, it can pivot, escalate…</description>
+    </item>
+    <item>
+      <title>Cryptographic Modernization must include Cryptographic Modularization</title>
+      <link>https://torinblair-sitepages.pages.dev/blog/secure-development/cryptographic-modernization-must-include-cryptographic-modularization</link>
+      <guid>https://torinblair-sitepages.pages.dev/blog/secure-development/cryptographic-modernization-must-include-cryptographic-modularization</guid>
+      <pubDate>Fri, 04 Sep 2026 10:56:51 -0600</pubDate>
+      <description>We are on the horizon of two significant technological shifts: Agentic Artificial Intelligence and Quantum Computing. Both are a threat to the existing cryptographic structures that protect our most sensitive data…</description>
+    </item>
+    <item>
+      <title>Chain of Ownership for Accountability with Agentic Actions and AI Models</title>
+      <link>https://torinblair-sitepages.pages.dev/blog/ai/chain-of-ownership-for-accountability-with-agentic-actions-and-ai-models</link>
+      <guid>https://torinblair-sitepages.pages.dev/blog/ai/chain-of-ownership-for-accountability-with-agentic-actions-and-ai-models</guid>
+      <pubDate>Wed, 02 Sep 2026 16:15:38 -0600</pubDate>
+      <description>Disclaimer: This is a new idea today, it is not fully baked, nor is it implemented. But it is a place to start for a chain of accountability ownership with our agentic actions. As organizations begin adopting agentic…</description>
+    </item>
+    <item>
+      <title>Designing for Attack Containment and Rebuild</title>
+      <link>https://torinblair-sitepages.pages.dev/blog/ai/designing-for-attack-containment-and-rebuild</link>
+      <guid>https://torinblair-sitepages.pages.dev/blog/ai/designing-for-attack-containment-and-rebuild</guid>
+      <pubDate>Tue, 01 Sep 2026 11:10:00 -0600</pubDate>
+      <description>Designing for perfect prevention of attacks with an AI adversary is not possible at this time. Now, more than ever, is the time to plan for when you are attacked, not if. Preparing for Agentic Attacks: What You Can Do…</description>
+    </item>
+    <item>
+      <title>Preparing for the growth curve drop with Artificial Intelligence.</title>
+      <link>https://torinblair-sitepages.pages.dev/blog/ai/preparing-for-the-growth-curve-drop-with-artificial-intelligence</link>
+      <guid>https://torinblair-sitepages.pages.dev/blog/ai/preparing-for-the-growth-curve-drop-with-artificial-intelligence</guid>
+      <pubDate>Thu, 27 Aug 2026 11:55:13 -0600</pubDate>
+      <description>The singularity didn’t move further away, our expectations were based on a phase of AI that will never repeat. The model has consumed the world’s historical knowledge. From here forward, progress depends on real time…</description>
+    </item>
+    <item>
+      <title>A very real caution about code generation tools</title>
+      <link>https://torinblair-sitepages.pages.dev/blog/ai/a-very-real-caution-about-code-generation-tools</link>
+      <guid>https://torinblair-sitepages.pages.dev/blog/ai/a-very-real-caution-about-code-generation-tools</guid>
+      <pubDate>Tue, 25 Aug 2026 16:12:27 -0600</pubDate>
+      <description>We hear a lot about agentic code generation, the use of AI models to create software, but there’s a deeper problem under the surface. What happens when the model’s training includes code that later turns out to be…</description>
+    </item>
+    <item>
+      <title>Designing a small gated AI solution</title>
+      <link>https://torinblair-sitepages.pages.dev/blog/ai/design-examples-with-ai</link>
+      <guid>https://torinblair-sitepages.pages.dev/blog/ai/design-examples-with-ai</guid>
+      <pubDate>Tue, 25 Aug 2026 14:57:14 -0600</pubDate>
+      <description>For Artificial Intelligence driven or augmented applications, it’s critical that we begin with determining what policy needs to be applied to agentic actions and how we authorize those actions against a known user’s…</description>
+    </item>
+    <item>
+      <title>Dual‑Model AI Security for Resilient Threat Detection</title>
+      <link>https://torinblair-sitepages.pages.dev/blog/ai/dual-model-ai-security-for-resilient-threat-detection</link>
+      <guid>https://torinblair-sitepages.pages.dev/blog/ai/dual-model-ai-security-for-resilient-threat-detection</guid>
+      <pubDate>Fri, 21 Aug 2026 09:57:24 -0600</pubDate>
+      <description>Overview As organizations adopt AI‑driven security tooling, they also inherit a new risk: AI models can fail in correlated ways, creating a single point of failure in threat detection. A dual‑model approach — using two…</description>
+    </item>
+    <item>
+      <title>Should AI take that autonomous action?  Probably not.</title>
+      <link>https://torinblair-sitepages.pages.dev/blog/ai/should-ai-take-that-autonomous-action-probably-not</link>
+      <guid>https://torinblair-sitepages.pages.dev/blog/ai/should-ai-take-that-autonomous-action-probably-not</guid>
+      <pubDate>Thu, 20 Aug 2026 10:22:11 -0600</pubDate>
+      <description>Classifying AI Actions Into Risk Levels Organizations have long classified data sensitivity to control who can access it, what can be done with it, and when it can be removed. We now need the same discipline for AI…</description>
+    </item>
+    <item>
+      <title>AI’s Next Frontier: Autonomous Discovery and Its Implications for Engineers</title>
+      <link>https://torinblair-sitepages.pages.dev/blog/ai/ais-next-frontier-autonomous-discovery-and-its-implications-for-engineers</link>
+      <guid>https://torinblair-sitepages.pages.dev/blog/ai/ais-next-frontier-autonomous-discovery-and-its-implications-for-engineers</guid>
+      <pubDate>Wed, 19 Aug 2026 13:59:17 -0600</pubDate>
+      <description>This is an existing post from a security perspective. And yes, I used Microsoft Copilot to translate it directly to engineer. AI is transitioning from passive inference systems to active discovery engines. Instead of…</description>
+    </item>
+    <item>
+      <title>AI’s Next Frontier: Autonomous Discovery and Its Implications for Leadership</title>
+      <link>https://torinblair-sitepages.pages.dev/blog/ai/ais-next-frontier-autonomous-discovery-and-its-implications-for-leadership</link>
+      <guid>https://torinblair-sitepages.pages.dev/blog/ai/ais-next-frontier-autonomous-discovery-and-its-implications-for-leadership</guid>
+      <pubDate>Wed, 19 Aug 2026 13:33:36 -0600</pubDate>
+      <description>AI is moving beyond summarizing human knowledge and entering a phase where it can generate new scientific insights through simulation, optimization, and autonomous reasoning loops. This shift represents a step‑change in…</description>
+    </item>
+    <item>
+      <title>Protecting an AI Agent from unauthorized operations</title>
+      <link>https://torinblair-sitepages.pages.dev/blog/ai/protecting-an-ai-agent-from-unauthorized-operations</link>
+      <guid>https://torinblair-sitepages.pages.dev/blog/ai/protecting-an-ai-agent-from-unauthorized-operations</guid>
+      <pubDate>Wed, 19 Aug 2026 13:13:51 -0600</pubDate>
+      <description>I’ve been researching and reviewing what can be done to better protect against improper agentic actions. The list of mitigations may be partial, but it’s an initial engineering design for protecting ourselves from the…</description>
+    </item>
+  </channel>
+</rss>
