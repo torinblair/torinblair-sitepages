@@ -237,3 +237,568 @@ a {
   max-width: 40rem;
   padding: 2rem 0 1rem;
 }
+
+/* Talks: slide decks (tools/build_talks.py) */
+
+.container:has(> .deck) {
+  max-width: 76rem;
+}
+
+.deck {
+  --accent: #86d3c4;
+  --tone-bad: #f19a92;
+  --tone-warn: #ecc67a;
+  --tone-good: #93d6a8;
+  --slide-bg: #131315;
+}
+
+.deck-bar,
+.deck-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.deck-bar {
+  margin-bottom: 1rem;
+}
+
+.deck-count {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.deck-nav {
+  margin-top: 1.25rem;
+}
+
+.deck-nav .deck-present {
+  background: none;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+}
+
+.deck-hint {
+  margin: 1rem 0 0;
+  text-align: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+}
+
+.deck-progress {
+  height: 2px;
+  background: var(--hairline);
+  margin-top: 1rem;
+}
+
+.deck-progress span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+
+/* The slide itself. Type scales with the slide's width (cqi) so it reads the
+   same at any size; denser slides get a smaller scale. */
+
+.slide {
+  container-type: inline-size;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--slide-bg);
+  border: 1px solid var(--hairline);
+  border-radius: 0.75rem;
+  padding: clamp(1.5rem, 5vw, 4rem) clamp(1.25rem, 5.5vw, 4.5rem);
+  --f: 1.95;
+}
+
+.slide.dens-2 { --f: 1.7; }
+.slide.dens-3 { --f: 1.5; }
+.slide.dens-4 { --f: 1.3; }
+
+@media (min-width: 768px) {
+  .slide {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+.slide-eyebrow {
+  font-size: max(0.7rem, 1.05cqi);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 0.9em;
+}
+
+.slide-title {
+  font-size: max(1.6rem, 3.6cqi);
+  line-height: 1.15;
+  margin-bottom: 0.8em;
+  color: #fff;
+}
+
+.slide-body {
+  font-size: max(0.95rem, calc(var(--f) * 1cqi));
+  font-weight: 300;
+  line-height: 1.5;
+  color: #e7e7e5;
+}
+
+.slide-body > * + * {
+  margin-top: 0.9em;
+}
+
+.slide-body p {
+  margin-bottom: 0;
+}
+
+.slide-intro {
+  color: var(--muted);
+}
+
+.slide-footnote {
+  font-size: 0.85em;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Cover and statement slides */
+
+.slide--cover {
+  justify-content: center;
+}
+
+.cover-title {
+  font-size: max(2.25rem, 6.2cqi);
+  font-weight: 300;
+  line-height: 1.05;
+  max-width: 14em;
+}
+
+.cover-lead {
+  font-size: max(1.05rem, 2.1cqi);
+  font-weight: 300;
+  color: var(--muted);
+  max-width: 30em;
+  margin: 0;
+}
+
+.slide--statement .slide-body {
+  font-family: var(--serif);
+  font-size: max(1.25rem, 2.9cqi);
+  line-height: 1.35;
+}
+
+.slide--statement .slide-statement:first-child {
+  color: #fff;
+}
+
+.slide--statement .slide-statement + .slide-statement {
+  color: var(--muted);
+}
+
+/* Lists */
+
+.slide-list,
+.slide-sublist,
+.steps,
+.timeline,
+.chips,
+.phases {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.slide-list > li {
+  position: relative;
+  padding-left: 1.2em;
+}
+
+.slide-list > li + li {
+  margin-top: 0.5em;
+}
+
+.slide-list > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 0.36em;
+  height: 0.36em;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.slide-sublist {
+  margin-top: 0.35em;
+  font-size: 0.9em;
+  color: var(--muted);
+}
+
+.slide-sublist > li {
+  position: relative;
+  padding-left: 1.1em;
+}
+
+.slide-sublist > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 0.55em;
+  border-top: 1px solid var(--faint);
+}
+
+.slide-sublist .slide-sublist {
+  font-size: 1em;
+  color: var(--faint);
+}
+
+.checklist > li {
+  padding-left: 1.5em;
+}
+
+.checklist > li::before {
+  top: 0.32em;
+  width: 0.85em;
+  height: 0.85em;
+  border-radius: 0.2em;
+  background: none;
+  border: 1px solid var(--accent);
+}
+
+/* Numbered steps */
+
+.steps {
+  counter-reset: step;
+}
+
+.steps > li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 2.6em;
+  min-height: 1.8em;
+}
+
+.steps > li + li {
+  margin-top: 0.75em;
+}
+
+.steps > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: -0.1em;
+  width: 1.8em;
+  height: 1.8em;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  color: var(--accent);
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+/* Timeline */
+
+.timeline > li {
+  display: grid;
+  grid-template-columns: 8.5em 1fr;
+  gap: 1em;
+  padding: 0.6em 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.timeline > li:last-child {
+  border-bottom: 1px solid var(--hairline);
+}
+
+.timeline .when {
+  color: var(--accent);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Term / definition rows */
+
+.terms {
+  margin-bottom: 0;
+}
+
+.terms > div {
+  display: grid;
+  grid-template-columns: minmax(8em, 34%) 1fr;
+  gap: 1.25em;
+  padding: 0.5em 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.terms > div:last-child {
+  border-bottom: 1px solid var(--hairline);
+}
+
+.terms dt {
+  font-weight: 500;
+  color: #fff;
+}
+
+.terms dd {
+  margin: 0;
+  color: #d6d6d4;
+}
+
+/* Chips */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6em;
+}
+
+.chips > li {
+  border: 1px solid var(--hairline);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 999px;
+  padding: 0.35em 0.95em;
+}
+
+/* Grouped cards */
+
+.groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(13em, 100%), 1fr));
+  gap: 1em;
+}
+
+@media (min-width: 768px) {
+  .groups:has(> :nth-child(4):last-child) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.group {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--hairline);
+  border-radius: 0.6em;
+  padding: 1em 1.2em;
+}
+
+.group h2 {
+  font-family: var(--bs-body-font-family);
+  font-size: 0.8em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 0.75em;
+}
+
+.tone-bad .slide-list > li::before { background: var(--tone-bad); }
+.tone-warn .slide-list > li::before { background: var(--tone-warn); }
+.tone-good .slide-list > li::before { background: var(--tone-good); }
+
+.group-status {
+  margin-bottom: 0;
+}
+
+.badge-tone {
+  display: inline-block;
+  font-size: 0.8em;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0.1em 0.75em;
+  white-space: nowrap;
+}
+
+.badge-tone.tone-bad { color: var(--tone-bad); }
+.badge-tone.tone-warn { color: var(--tone-warn); }
+.badge-tone.tone-good { color: var(--tone-good); }
+
+.references {
+  grid-template-columns: repeat(auto-fit, minmax(min(22em, 100%), 1fr));
+  font-size: 0.92em;
+}
+
+.references .group {
+  padding: 0.8em 1em;
+}
+
+.references .slide-list > li + li {
+  margin-top: 0.3em;
+}
+
+/* Inventory table */
+
+.inventory {
+  --bs-table-bg: transparent;
+  --bs-table-color: #e7e7e5;
+  --bs-table-border-color: var(--hairline);
+  font-size: 0.85em;
+  margin-bottom: 0;
+}
+
+.inventory thead th {
+  font-weight: 500;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.inventory tbody th {
+  font-weight: 500;
+  color: #fff;
+}
+
+.inventory tr.row-placeholder > * {
+  color: var(--faint);
+  font-style: italic;
+}
+
+/* Roadmap phases */
+
+.phases {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(11em, 100%), 1fr));
+  gap: 1em;
+  font-size: 0.88em;
+}
+
+.phase {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--hairline);
+  border-radius: 0.6em;
+  padding: 1em 1.1em;
+}
+
+.phase-num {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 0.3em !important;
+}
+
+.phase h2 {
+  font-size: 1.25em;
+  color: #fff;
+  margin-bottom: 0.2em;
+}
+
+.phase-when {
+  font-size: 0.85em;
+  color: var(--muted);
+  margin-bottom: 0.8em !important;
+}
+
+.phase .slide-list > li + li {
+  margin-top: 0.45em;
+}
+
+/* Overview page */
+
+.deck-toc-heading {
+  font-family: var(--bs-body-font-family);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--hairline);
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.deck-toc {
+  padding-left: 2.25rem;
+  margin: 0;
+}
+
+.deck-toc li {
+  padding: 0.3rem 0;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.deck-toc a {
+  text-decoration: none;
+}
+
+.deck-toc a:hover {
+  text-decoration: underline;
+}
+
+/* Present mode: the slide fills the window. Toggled by deck.js (P / Esc). */
+
+html.presenting,
+html.presenting body {
+  overflow: hidden;
+}
+
+html.presenting .site-nav,
+html.presenting .site-footer,
+html.presenting .deck-bar,
+html.presenting .deck-hint {
+  display: none !important;
+}
+
+html.presenting .slide {
+  container-type: size;
+  position: fixed;
+  inset: 0;
+  z-index: 1030;
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: 0;
+  padding: 7vh 7vw 9vh;
+  overflow-y: auto;
+}
+
+html.presenting .slide-eyebrow { font-size: min(1.05cqi, 1.9cqb); }
+html.presenting .slide-title { font-size: min(3.6cqi, 6.4cqb); }
+html.presenting .slide-body { font-size: calc(var(--f) * min(1cqi, 1.75cqb)); }
+html.presenting .cover-title { font-size: min(6.2cqi, 11cqb); }
+html.presenting .cover-lead { font-size: min(2.1cqi, 3.8cqb); }
+html.presenting .slide--statement .slide-body { font-size: min(2.9cqi, 5.2cqb); }
+
+html.presenting .deck-progress {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  z-index: 1031;
+}
+
+html.presenting .deck-nav {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1rem;
+  margin: 0;
+  z-index: 1031;
+  opacity: 0.35;
+  transition: opacity 0.15s ease;
+}
+
+html.presenting .deck-nav:hover,
+html.presenting .deck-nav:focus-within {
+  opacity: 1;
+}
+
+@media (max-width: 767.98px) {
+  .timeline > li,
+  .terms > div {
+    grid-template-columns: 1fr;
+    gap: 0.15em;
+  }
+}
