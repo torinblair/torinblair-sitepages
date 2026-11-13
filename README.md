@@ -12,6 +12,7 @@ public/                 Deployed site (Cloudflare Pages output directory)
     ai/                 index.html + one <post-slug>.html per AI post
     secure-development/ index.html + one <post-slug>.html per other post
   assets/css/site.css   Custom styles (hand-edited; never overwritten)
+  talks/                Slide decks built from content/talks/ (tools/build_talks.py)
   feed.xml              RSS feed
   _redirects            Old WordPress permalinks -> /blog/<section>/<slug>
   404.html
@@ -45,6 +46,23 @@ This regenerates everything in `public/` except `public/assets/`, so put layout 
 `templates/layout.html` and set `SITE_URL` at the top of the script to your real domain.
 Posts in the "Artificial Intelligence Security" category go to `blog/ai/`; everything else goes to
 `blog/secure-development/`. Edit `SECTIONS` in the script to change or add sections.
+
+## Talks (slide decks)
+
+Decks live in `content/talks/<slug>.json` and are built into `/talks/<slug>/` (overview) and
+`/talks/<slug>/<n>` (one page per slide):
+
+```sh
+python3 tools/build_talks.py
+```
+
+`import_wordpress.py` calls this too, so decks survive a re-import. Each slide has a `title`, an
+optional `section` (shown above the title) and a `kind` that picks its layout: `bullets` (default),
+`cover`, `statement`, `timeline`, `steps`, `checklist`, `terms`, `chips`, `groups`, `table`,
+`phases` or `references`. Use the existing deck as the reference for each kind's fields.
+
+On a slide page, the arrow keys move between slides, `P` toggles full-window present mode, and `Esc`
+exits it. Adding `#present` to a slide URL opens it in present mode.
 
 ## Deploy to Cloudflare Pages
 

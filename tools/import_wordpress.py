@@ -6,6 +6,7 @@ Usage:
 
 Re-running regenerates every page under public/ (except public/assets/), so
 make layout changes in templates/layout.html rather than in generated files.
+Slide decks in content/talks/ are rebuilt too (see build_talks.py).
 """
 
 import datetime
@@ -18,6 +19,8 @@ import urllib.request
 from email.utils import format_datetime
 from pathlib import Path
 from string import Template
+
+import build_talks
 
 WP_SITE = "torinblair.wordpress.com"
 SITE_URL = "https://torinblair-sitepages.pages.dev"  # change to your custom domain
@@ -126,6 +129,7 @@ def render(path, title, description, content, nav=""):
         year=datetime.date.today().year,
         nav_home=" active" if nav == "home" else "",
         nav_blog=" active" if nav == "blog" else "",
+        nav_talks="",
         content=content,
     )
     target = OUT / path
@@ -306,6 +310,7 @@ def main():
     build_404()
     build_feed(posts)
     build_redirects(posts)
+    build_talks.build(TAGLINE)
     print(f"Built {len(posts)} posts in {len(SECTIONS)} sections into {OUT}")
 
 

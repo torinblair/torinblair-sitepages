@@ -1,0 +1,649 @@
+{
+  "slug": "post-quantum-roadmap",
+  "title": "Post Quantum Cryptography Roadmap",
+  "subtitle": "A walk through the problem and the mitigation for new quantum computing attacks on existing cryptography",
+  "source": "Post Quantum Roadmap.pptx",
+  "slides": [
+    {
+      "kind": "cover",
+      "title": "Post Quantum Cryptography Roadmap",
+      "lead": "A walk through the problem and the mitigation for new quantum computing attacks on existing cryptography"
+    },
+    {
+      "section": "The problem",
+      "title": "Disclaimer",
+      "body": [
+        "I am an application engineer who focuses primarily on security, and am fascinated by the challenge Post Quantum Cryptography presents.",
+        "I did approximately 45% of my research with the assistance of AI.",
+        "This is an overall picture, in my opinion, of the work that we can anticipate over the next four years to be ready for quantum computers to break our current classical encryption.",
+        "And in a world of government funded state attackers, they will be using quantum machines to crack existing encryption as soon as it is possible.",
+        "I believe this knowledge should be shared so everyone can be prepared. We are all one part of a big happy family / worldwide compromise chain."
+      ]
+    },
+    {
+      "section": "The problem",
+      "kind": "timeline",
+      "title": "The history",
+      "intro": [
+        "The world needed a way to encrypt data with a publicly known key that only the holder of the special private key could decrypt.",
+        "The world needed a way to sign a piece of data using the private key that any public key holder could verify for authenticity."
+      ],
+      "items": [
+        ["1977", "RSA was introduced."],
+        ["1990s", "Certificates were added and Public Key Infrastructure became widely used."],
+        ["Today", "SSL, TLS and Message Level Encryption are used across the internet to secure our information."]
+      ]
+    },
+    {
+      "section": "The problem",
+      "title": "What is post quantum cryptography",
+      "body": [
+        "A set of encryption and signature algorithms that cannot be broken by quantum computers, even those running Shor’s or Grover’s algorithm.",
+        "Uses lattice problems rather than factorization of primes.",
+        "Runs on classical computers, but is resistant to quantum computers.",
+        {"t": "Algorithms", "c": [
+          "ML-KEM – Key encapsulation",
+          "ML-DSA – Digital signature creation and validation",
+          "SLH-DSA – Stateless hash based signatures",
+          "FN-DSA – Small signatures with fast verification (draft / expected)"
+        ]}
+      ]
+    },
+    {
+      "section": "The problem",
+      "title": "The urgency of post quantum cryptography",
+      "body": [
+        {"t": "The cryptography that protects our information across the globe has thrived on one single fact:", "c": [
+          "We can give everyone a public key they can use to authenticate and encrypt. The private key holder can decrypt or give a true signature.",
+          "And these keys would take longer than the real life of the solar system to crack."
+        ]},
+        "But quantum computing will be able to crack the keys in a matter of minutes.",
+        "Post Quantum Cryptography uses new math that neither a classical computer nor a quantum computer can easily derive.",
+        "This cryptography can be implemented on classical computers today so we can be prepared for when the first quantum crack attempt comes.",
+        "Government sponsored state attackers will be attempting to crack these keys as soon as it is possible."
+      ]
+    },
+    {
+      "section": "The problem",
+      "title": "The problem",
+      "body": [
+        "RSA has been reliable for decades because multiplying two prime numbers is very easy (key determination), but factoring their product is extremely hard for classical computers.",
+        "This has allowed RSA and its alternatives, DH and ECC, to become deeply ingrained in everything we do.",
+        "Shor’s algorithm shows that quantum computers can quickly factor that product.",
+        "So we need new math to determine the keys in a way that is impossible for quantum or classical computers.",
+        "And we need to prepare to update every point in our systems that uses public/private key pairs for the protection, authentication and verification of our data."
+      ]
+    },
+    {
+      "section": "The problem",
+      "kind": "steps",
+      "title": "The attack vector is the key, not the payload",
+      "intro": [
+        "The public keys used to encrypt data are secure enough that no current machine can reverse engineer the private key. It would take longer than the expected life of our solar system.",
+        "That private key is the secret to decrypt millions of information payloads."
+      ],
+      "body": [
+        "A quantum machine could potentially crack a single private key in days or weeks, once that becomes possible – as early as the mid-2030s.",
+        "A single successful crack reveals the decryption key, not the payload.",
+        "Once that private key is discovered, every symmetric key it protected can be decrypted immediately.",
+        "Then each symmetric key can decrypt the information inside the protected payload."
+      ]
+    },
+    {
+      "section": "Business impact",
+      "kind": "statement",
+      "title": "What are we doing about it",
+      "body": [
+        "Hopefully by now we are paying attention.",
+        "And now we will begin to discuss what we can do about this problem."
+      ]
+    },
+    {
+      "section": "Business impact",
+      "title": "How does this impact business",
+      "body": [
+        "Businesses should review and re-evaluate their cryptography and its implementation.",
+        "All cryptographic modules using asymmetric encryption will need to be modified or replaced.",
+        "All certificates in use will need to be renewed to the new Post Quantum Cryptography / classic key model.",
+        "Cryptographic modules for signing and verification of data will need to be replaced.",
+        "Symmetric encryption should be reviewed.",
+        "All hashing should be reviewed.",
+        "If you hear the term MD5 or DES, you should have already replaced it. Get on it now."
+      ]
+    },
+    {
+      "section": "Business impact",
+      "title": "Smaller business task list",
+      "body": [
+        "There is a lot of information that may only apply to larger businesses running in their own datacenters.",
+        {"t": "The quick list of items to consider for smaller firms:", "c": [
+          "Server OS upgrades",
+          "Web server, SSL and SFTP updates",
+          "New cipher suite priority",
+          "New certificates supporting Post Quantum Cryptography",
+          "Network switch updates – mandatory Post Quantum protection of admin functions",
+          "Custom code that implements cryptography",
+          "Encrypted stored data",
+          "And don’t forget about your encrypted history: data backups, message retention, audit trail, old received files, etc."
+        ]}
+      ]
+    },
+    {
+      "section": "Business impact",
+      "kind": "timeline",
+      "title": "The current industry state",
+      "items": [
+        ["August 2024", "NIST approves three cryptographic standards for key encapsulation, public/private key encryption and digital signatures."],
+        ["2025", "Operating systems are updated to support the Post Quantum algorithms."],
+        ["Late 2025", "The first Hardware Security Module vendors release Post Quantum algorithms in their modules."],
+        ["Current", "Certificate vendors are working on releasing hybrid PQC / classical keyed certificates."],
+        ["Current", "Core coding libraries are being released with Post Quantum Cryptographic algorithms."]
+      ]
+    },
+    {
+      "section": "Business impact",
+      "kind": "checklist",
+      "title": "Information to know",
+      "body": [
+        "Operating systems and versions on servers, load balancers and web app firewalls",
+        "Hardware Security Modules",
+        "Where you use Transport Layer Security, SSH, SFTP or any other protection for data in transit",
+        "Your certificate vendor and their PQC timeline",
+        "Message Level Encryption usage",
+        "File encryption technologies",
+        "Algorithms and key storage for data at rest",
+        "Algorithms and key storage for data in use",
+        "How your secrets are protected and which algorithms are protecting those secrets",
+        "Your network systems and the protection of their admin portals"
+      ]
+    },
+    {
+      "section": "Business impact",
+      "kind": "terms",
+      "title": "Tech concepts to know",
+      "items": [
+        ["Asymmetric cryptography", "The use of a publicly available key to encrypt data that only the private key holder can decrypt."],
+        ["Digital signatures", "The use of a private key to sign a piece of data that any public key holder can verify for authenticity."],
+        ["Hashing", "An irreversible way to transform data so it can be compared or looked up without decrypting the original."],
+        ["Symmetric cryptography", "The use of a single key to encrypt and decrypt data."],
+        ["Hardware Security Module", "A machine that holds the key and performs encryption operations in a way that the key can never be retrieved."]
+      ]
+    },
+    {
+      "section": "Business impact",
+      "kind": "terms",
+      "title": "The heaviest tech impacts",
+      "items": [
+        ["Asymmetric cryptography", "No existing algorithms will be safe."],
+        ["Key encapsulation", "No existing algorithms will be safe."],
+        ["Certificates", "All need to update to the new dual key standard."],
+        ["Operating systems", "Core cryptography will need to support new algorithms."],
+        ["Cipher suites (TLS)", "Will need to support new algorithms for key encapsulation."],
+        ["Servers, load balancers, web app firewalls", "Will need to support new algorithms via operating system and cipher suites."],
+        ["Web server, file transfer and SSH", "Will need to support Post Quantum encryption and cipher suites."],
+        ["Hardware Security Modules", "Will need to support new key types and algorithms."]
+      ]
+    },
+    {
+      "section": "Business impact",
+      "title": "Other tech impacts",
+      "body": [
+        "VPN – use of IPsec or other tunneling will need to be updated",
+        "Symmetric cryptography – AES-GCM 256 is recommended. It has no other known exploits, and 256-bit keys will be hardest to crack.",
+        "OpenSSH and Secure File Transfer Protocol will need to support the latest cryptography",
+        "Programming language versions",
+        "Programming libraries used for encryption",
+        "Secrets storage / password storage",
+        "Code refactoring to allow easier swap in/out of encryption as quantum computing evolves",
+        "Authentication systems – LDAP is common",
+        "Hardware security keys",
+        "OAuth tokens and JWT keys"
+      ]
+    },
+    {
+      "section": "Business impact",
+      "kind": "chips",
+      "title": "Additional tech impacts",
+      "body": [
+        "Cloud providers",
+        "Cloud orchestrators",
+        "Secure messaging – email, OpenPGP",
+        "Core container images – will they support PQC?",
+        "Message queueing systems",
+        "Database encryption (if directly using certificates)",
+        "IoT devices",
+        "Network hardware – will router OS or devices need an update?",
+        "Long lived encrypted cookies",
+        "Long lived encrypted tokens",
+        "DNSSEC"
+      ]
+    },
+    {
+      "section": "Business impact",
+      "kind": "chips",
+      "title": "Specialty industry impacts",
+      "body": [
+        "Code and firmware signing",
+        "Secure boot chains",
+        "E-signature platform signatures",
+        "SCADA / ICS and other industrial control systems",
+        "Payment systems",
+        "Smart cards / access card systems",
+        "Blockchain and cryptocurrency",
+        "Automotive systems that communicate to or from the vehicle",
+        "PKI infrastructure components that require PQC compatible signatures",
+        "Medical device IoT",
+        "Timestamping services"
+      ]
+    },
+    {
+      "section": "Business impact",
+      "kind": "checklist",
+      "title": "Last – what you’ll forget",
+      "body": [
+        "Encrypted backups",
+        "Encrypted audit logs",
+        "Encrypted message trace retention",
+        "Encrypted file retention",
+        "Other encrypted data retention",
+        "Archived rotated keys",
+        "Cryptographic timestamps for legal or other retention"
+      ]
+    },
+    {
+      "section": "Business impact",
+      "kind": "checklist",
+      "title": "What you should budget for",
+      "body": [
+        "Server operating system updates",
+        "Hardware Security Modules (if applicable)",
+        "Hardware security keys (if applicable)",
+        "Web server, SFTP server and encrypting file transfer server updates (if applicable)",
+        {"t": "Certificate updates", "c": ["Should be part of the renewal cycle in 2027"]},
+        "Network equipment – the admin portals or endpoints will need to support Post Quantum Cryptography",
+        "Message encryption provider updates (if applicable)",
+        "Message queueing system updates (if applicable)"
+      ]
+    },
+    {
+      "section": "Algorithms",
+      "kind": "groups",
+      "tone": "bad",
+      "title": "What is obsolete due to existing compromise",
+      "groups": [
+        {"h": "Symmetric encryption", "c": ["DES / 3DES", "RC2 / RC4", "Blowfish", "AES that is not in GCM mode – preference is AES-GCM 256"]},
+        {"h": "Hashing", "c": ["MD5", "SHA-1", "SHA-224"]}
+      ]
+    },
+    {
+      "section": "Algorithms",
+      "kind": "groups",
+      "tone": "warn",
+      "title": "What will become obsolete",
+      "groups": [
+        {"h": "Asymmetric encryption / key encapsulation", "c": ["RSA", "DH – Diffie-Hellman", "ECC – Elliptic Curve (ECDH and ECDHE are common)"]},
+        {"h": "Signature", "c": ["DSA"]}
+      ]
+    },
+    {
+      "section": "Algorithms",
+      "kind": "groups",
+      "tone": "good",
+      "title": "What to use",
+      "groups": [
+        {"h": "Asymmetric encryption / key encapsulation", "c": ["ML-KEM"]},
+        {"h": "Digital signature", "c": ["ML-DSA", "SLH-DSA"]},
+        {"h": "Symmetric encryption", "c": ["AES-GCM 256", "AES-GCM 128 if 256 is not allowed", "AES-CBC plus an anti-tamper pre-decrypt verification tag, only if absolutely necessary"]},
+        {"h": "Hashing", "c": ["SHA-2 – 256 or more", "SHA-3", "SHAKE128 or SHAKE256"]}
+      ]
+    },
+    {
+      "section": "Algorithms",
+      "kind": "steps",
+      "title": "The tech dependency chain",
+      "body": [
+        {"t": "Operating systems will need to support PQC algorithms.", "c": [
+          "Windows – built in to Schannel",
+          "Linux – OpenSSL 3.5 and later",
+          "Mac – CryptoKit",
+          "Android – verified boot and platform"
+        ]},
+        "Hardware Security Modules (HSMs) will need to support PQC algorithms.",
+        "Once certificate issuers have HSMs to protect their signing keys, certificates can be created that support dual classic RSA and PQC keys.",
+        {"t": "Cipher suites that support hybrid PQC / classical key encapsulation.", "c": [
+          "In many cases, these rely on the operating system cryptography."
+        ]}
+      ]
+    },
+    {
+      "section": "Algorithms",
+      "title": "First point – protect any key exchange",
+      "body": [
+        "If you are exchanging long lived keys over the internet, it is recommended you stop.",
+        "There are known compromises in our communication technology, and some sensitive traffic of high value could be intercepted for later quantum cracking.",
+        "Send keys or partial keys via a private, protected physical channel: either an entirely segregated network or, preferably, physical media.",
+        "Better – if you have the ability to use key derivation based on shared known inputs, that is far more secure.",
+        "Finally – if you have sent keys insecurely, make a plan to rotate those keys."
+      ]
+    },
+    {
+      "section": "The focus areas",
+      "title": "Before you start",
+      "body": [
+        {"t": "You will be making two sets of updates:", "c": [
+          "The first will enable Post Quantum Cryptography.",
+          "The second will allow only Post Quantum Cryptography."
+        ]},
+        "Maintain a roadmap of what needs to be updated.",
+        "Automate as much of the updates as possible.",
+        "If you implement custom cryptography, do the work to modularize it for future replacement now.",
+        "Design your coding changes as if they will be weak and need replacement on day one. No defense is foolproof forever."
+      ]
+    },
+    {
+      "section": "The focus areas",
+      "num": 1,
+      "title": "Hardware Security Modules",
+      "body": [
+        "If you have a hardware security module, contact your vendor for PQC supporting devices.",
+        "Also ensure it supports AES-GCM 256 for symmetric encryption.",
+        "For maximum key protection, consider allowing for key derivation components rather than relying on key exchange."
+      ]
+    },
+    {
+      "section": "The focus areas",
+      "num": 2,
+      "kind": "groups",
+      "title": "Operating systems",
+      "groups": [
+        {"h": "Linux", "c": ["OpenSSL 3.5 and later", "OpenSSH 10 and later", "Common versions: Red Hat 9.7 and later, Ubuntu 25.10 and later", "Android support in version 17"]},
+        {"h": "Windows", "c": ["Server 2025 and later", "Desktop 11 and later"]},
+        {"h": "Mac", "c": ["macOS Tahoe 26", "As well as the iOS 26 update"]}
+      ],
+      "footnote": "Other operating systems are not yet supported; verify support with your vendor."
+    },
+    {
+      "section": "The focus areas",
+      "num": 3,
+      "title": "Certificates",
+      "body": [
+        "Know when hybrid Post Quantum certificates will be available from your vendor – the realistic timeline is 2027 to 2029.",
+        {"t": "There are two methods of certificate issuance:", "c": [
+          {"t": "Dual certificates for the same identity – one classical certificate, one PQC certificate", "c": ["Supports maximum compatibility"]},
+          {"t": "Composite certificate – signatures from classical and PQC algorithms are merged into one composite signature", "c": ["Tougher to forge"]}
+        ]},
+        "Plan on testing once those certificates are available.",
+        "If you self-issue certificates from internal systems such as Active Directory Certificate Services, HashiCorp Vault or Keyfactor, the support timeline may be different."
+      ]
+    },
+    {
+      "section": "The focus areas",
+      "num": 4,
+      "title": "Cipher suite order",
+      "body": [
+        "Once new cipher suites are available, install them via updates to your servers and load balancers.",
+        "Enable these suites in your web server software, OpenSSL configuration, Windows Schannel and Active Directory policy, and prioritize them highest on the server order list.",
+        "Maintain a list of everything you touched. You will need to repeat the updates as PQC-only cipher suites become standard by 2030.",
+        "As you prepare for testing, you can temporarily modify the cipher suite order list to only support the PQC suites to test connectivity."
+      ]
+    },
+    {
+      "section": "The focus areas",
+      "kind": "steps",
+      "title": "Are cipher suites a hard cutover? No.",
+      "intro": [
+        "You can support classical and hybrid PQC at the same time.",
+        "Right now, most major providers such as Cloudflare, Amazon and Microsoft already support PQC alongside current suites."
+      ],
+      "body": [
+        "Your server has a list of cipher suites in its “preferred order”.",
+        "When a client connects, it sends a list of what it supports.",
+        "The server matches the client list to its preferred order list and picks the “most preferred” suite from the client’s list."
+      ],
+      "footnote": "This allows for a graceful transition without breaking connectivity."
+    },
+    {
+      "section": "The focus areas",
+      "title": "Does the PQC part of a cipher suite encrypt data?",
+      "body": [
+        "This is a mixed question. Cipher suites are important in TLS, IPsec (VPN), point-to-point tunneling and more.",
+        "The encryption of data is done with a fast “symmetric key”.",
+        "The exchange of that key is done via Post Quantum key encapsulation, which is asymmetric encryption. It is far slower, so it is only used to protect the symmetric key.",
+        "So the quantum attack is not a compromise of the data; it is a compromise of the private key used to decrypt the exchanged symmetric key.",
+        "Once the attacker has the symmetric key, they can decrypt the data in the payload."
+      ]
+    },
+    {
+      "section": "The focus areas",
+      "num": 5,
+      "title": "Network hardware",
+      "body": [
+        "Make a plan on day one to update your switch and router hardware to use Post Quantum protection when it becomes available.",
+        {"t": "The administrative functions of forgotten switches and routers have historically been a prime target for attackers.", "c": [
+          "These admin access points need to be protected against quantum attacks."
+        ]},
+        "It is unlikely there will be an impact on the actual routing of packets, but it is recommended you test when it is time.",
+        "Any service mesh or gateway that performs TLS termination may require updates to properly support Post Quantum Cryptography."
+      ]
+    },
+    {
+      "section": "The focus areas",
+      "num": 6,
+      "title": "Your code",
+      "body": [
+        "Do the programming languages that do your encryption support the right algorithms?",
+        "Do your programming library dependencies support the right algorithms?",
+        "Is your cryptographic code designed so that it is relatively simple to replace in response to a newly discovered weakness?",
+        "Implement a consistent abstract class or interface that code uses, then inherit your cryptographic wrapper from it.",
+        "Then wire up which module or modules are used at app startup. Configuring in code is slightly more secure than in a configuration file."
+      ]
+    },
+    {
+      "section": "The focus areas",
+      "kind": "chips",
+      "title": "Languages supporting PQC or PQC libraries",
+      "body": ["C / C++", "Java", "Kotlin", "Go", "Rust", ".NET 10+ – some native support, and via Bouncy Castle", "Node", "Python"]
+    },
+    {
+      "section": "The focus areas",
+      "kind": "terms",
+      "title": "Code libraries that support PQC",
+      "items": [
+        ["Bouncy Castle", "Enterprise maintenance is available via Keyfactor."],
+        ["OpenSSL", "3.5 and later."],
+        ["liboqs", "Open Quantum Safe C library."],
+        ["PQCrypto", "Post-quantum cryptography for Rust."]
+      ]
+    },
+    {
+      "section": "The focus areas",
+      "num": 7,
+      "kind": "checklist",
+      "title": "Stored data",
+      "body": [
+        "Is your stored data encrypted using quantum resistant algorithms?",
+        "Is it labelled so you can determine “which key” encrypted the data?",
+        "Would it be relatively easy to rotate a key should you need to replace an algorithm due to a newly discovered quantum weakness?",
+        "Is your code written so it can read “which key” was used to encrypt the data, use that key, and re-encrypt if the existing key has been marked obsolete?"
+      ]
+    },
+    {
+      "section": "The focus areas",
+      "num": 8,
+      "title": "File transfer",
+      "body": [
+        "If your business uses asymmetric encryption via technology like PGP, is it ready to use PQC?",
+        "OpenPGP has this on its roadmap and is actively testing.",
+        "Other vendors may be working on PQC, but rely on technology such as OpenSSL, an updated Mac CryptoKit or Windows CNG libraries being available on the OS."
+      ]
+    },
+    {
+      "section": "The focus areas",
+      "num": 9,
+      "title": "Message Level Encryption (MLE)",
+      "body": [
+        "You may be protecting messages using a public/private key pair.",
+        "The code that processes decryption will need to be modularized to support current and Post Quantum algorithms.",
+        "You may need a configuration switch per entity to control which encryption is used.",
+        "You will need to plan to get new keys, and possibly support dual keys per entity.",
+        "Lastly, plan for when a Post Quantum algorithm also needs to be replaced due to a weakness.",
+        "Planning for when you are compromised, not if, can save a significant amount of time and money down the road."
+      ]
+    },
+    {
+      "section": "The focus areas",
+      "num": 10,
+      "kind": "terms",
+      "title": "JWT, OAuth, SAML and other federated security",
+      "intro": ["Many of these will need updates to support Post Quantum signatures via ML-DSA or SLH-DSA."],
+      "items": [
+        ["SAML, OAuth, OpenID Connect", "Will need PQC signatures."],
+        ["JWT", "Will need signature updates, new key type parameters for PQC and new core library support."],
+        ["WS-Federation / WS-Trust", "Updates for SOAP XML services."],
+        ["FIDO2 / WebAuthn", "Will need PQC or hybrid credential types."],
+        ["Kerberos, LDAP over TLS", "And any similar technology will need updates to use PQC."]
+      ]
+    },
+    {
+      "section": "The focus areas",
+      "num": 11,
+      "title": "Your history",
+      "body": [
+        "We live in a world where we must assume that the deepest parts of our network will be compromised.",
+        "You have file backups, old file transfers, encrypted audit trails, old stored MLE protected messages and more that need to be retained for legal reasons.",
+        "That data will be quickly cracked by quantum machines before the legal hold ages out.",
+        "Make a plan to protect that data now. You can decrypt and re-encrypt, or dual encrypt with a new post quantum key, but it should absolutely be protected."
+      ]
+    },
+    {
+      "section": "The longer term",
+      "title": "The longer term",
+      "body": [
+        "You will need to be prepared to fully switch to Post Quantum Cryptography only. The roadmap will be the same.",
+        "What we know about these algorithms is based on solid mathematics, but we cannot prove they are quantum proof until roughly 2030.",
+        "This means we may need to replay this roadmap to protect against undiscovered weaknesses once quantum computing becomes a reality.",
+        "Be prepared for when you are compromised, not if."
+      ]
+    },
+    {
+      "section": "The longer term",
+      "title": "What about already harvested and stored information",
+      "body": [
+        "We know we already have a problem.",
+        "Telecommunications networks have been lurked on, and messages have been intercepted and stored by various governments.",
+        "This information can be decrypted once the private key has been derived by a quantum machine.",
+        "For most of us, this will be our financial information, which is already half available on the dark web thanks to other system compromises.",
+        "For some businesses, this will be other keys or secrets used to protect your systems.",
+        "For some entities, this will be important strategic information."
+      ]
+    },
+    {
+      "section": "The longer term",
+      "title": "What to do to protect harvested information",
+      "body": [
+        "Implement PQC sooner rather than waiting until 2030. We expect the first crack of a private key as early as the mid-2030s, but the sooner we protect, the less harvested information there will be to crack.",
+        "Rotate your secrets and passwords, and evolve your information so today’s information is no longer applicable.",
+        "If clients have sensitive identifiers, consider rotating them after PQC is commonly used.",
+        "If you have sensitive strategic information and you are a valuable target, stop sending it over public networks.",
+        "Ideally, we will stop using identifiers such as SSN for verifying everyone.",
+        "And lastly, it might be wise to rotate the financial information you’ve used online in the next few years."
+      ]
+    },
+    {
+      "section": "Where to start",
+      "kind": "statement",
+      "title": "So where do you start?",
+      "body": [
+        "Begin by knowing your cryptographic debt and the cryptography that needs to change.",
+        "Take a pragmatic approach to walking through the inventory.",
+        "Then implement changes in waves, detailed in the next slides."
+      ]
+    },
+    {
+      "section": "Where to start",
+      "kind": "table",
+      "title": "Sample cryptographic inventory",
+      "head": ["System / application", "Cryptographic usage", "Current algorithm", "PQC target", "Priority", "Migration status"],
+      "rows": [
+        ["TLS / HTTPS", "Key exchange", "ECDHE / RSA", "ML-KEM", "High", "Not started"],
+        ["Digital certificates", "Signatures", "RSA-2048", "ML-DSA", "High", "Not started"],
+        ["File transfer (PGP)", "Encryption", "RSA / ECDH", "ML-KEM", "Medium", "Not started"],
+        ["JWT / OAuth / SAML", "Signatures", "ECDSA / RSA", "ML-DSA / SLH-DSA", "Medium", "Not started"],
+        ["Message Level Encryption", "Encryption", "RSA / ECDH", "ML-KEM", "High", "Not started"],
+        ["VPN / IPsec", "Key exchange", "IKEv2 / ECDH", "ML-KEM", "Medium", "Not started"],
+        ["[Add your system]", "[Usage type]", "[Algorithm]", "[PQC replacement]", "[H/M/L]", "[Status]"]
+      ]
+    },
+    {
+      "section": "Where to start",
+      "title": "Practical tips for the inventory process",
+      "body": [
+        "Walk your network perimeter inward: web servers → load balancers → app servers → databases → backups.",
+        "Don’t forget the “soft” crypto: OAuth tokens, JWTs, SAML assertions, LDAP bindings, FIDO2 keys.",
+        "Tag each item with its dependency chain – OS → HSM → certificates → cipher suites – so you know what’s blocking what.",
+        "Document what you can’t change yet and set a calendar reminder for when vendor support arrives."
+      ]
+    },
+    {
+      "section": "Where to start",
+      "kind": "phases",
+      "title": "Summary: PQC migration planning roadmap",
+      "phases": [
+        {"h": "Assess & inventory", "when": "Now – Q4 2026", "c": [
+          "Catalog all cryptographic usage: asymmetric keys, certificates, cipher suites, HSMs",
+          "Identify obsolete algorithms (MD5, DES, SHA-1) and remediate immediately",
+          "Protect key exchanges – stop transmitting long-lived keys over public networks"
+        ]},
+        {"h": "Prepare infrastructure", "when": "2026 – 2027", "c": [
+          "Upgrade OS: Linux OpenSSL 3.5+, Windows Server 2025+, macOS Tahoe 26",
+          "Update HSMs and network hardware, and modularize custom cryptographic code",
+          "Budget for certificate renewals, server upgrades and code refactoring"
+        ]},
+        {"h": "Enable hybrid PQC", "when": "2027 – 2029", "c": [
+          "Deploy hybrid PQC/classical certificates and cipher suites (ML-KEM, ML-DSA)",
+          "Update JWT, OAuth, SAML, VPN and MLE to support PQC signatures",
+          "Re-encrypt historical data: backups, audit logs, retained messages"
+        ]},
+        {"h": "PQC-only transition", "when": "2029 – 2030+", "c": [
+          "Mandate PQC-only cipher suites and retire classical asymmetric algorithms",
+          "Validate quantum resistance as real quantum threats emerge (mid-2030s)",
+          "Maintain agility – design for future algorithm replacement, not if but when"
+        ]}
+      ]
+    },
+    {
+      "section": "References",
+      "kind": "references",
+      "title": "Bibliography",
+      "groups": [
+        {"h": "NIST standards", "c": [
+          "NIST FIPS 203 – Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), August 2024",
+          "NIST FIPS 204 – Module-Lattice-Based Digital Signature Algorithm (ML-DSA), August 2024",
+          "NIST FIPS 205 – Stateless Hash-Based Digital Signature Algorithm (SLH-DSA), August 2024",
+          "NIST IR 8413 – Status Report on the Third Round of the Post-Quantum Cryptography Standardization Process",
+          "FN-DSA (draft) – FFT over NTRU-Lattice-Based Digital Signature Algorithm, NIST finalization expected"
+        ]},
+        {"h": "Foundational research", "c": [
+          "Rivest, R., Shamir, A., Adleman, L. – “A Method for Obtaining Digital Signatures and Public-Key Cryptosystems,” 1977",
+          "Shor, P. – “Algorithms for Quantum Computation: Discrete Logarithms and Factoring,” 1994",
+          "Grover, L. – “A Fast Quantum Mechanical Algorithm for Database Search,” 1996"
+        ]},
+        {"h": "Software and libraries", "c": [
+          "OpenSSL Project – OpenSSL 3.5+ with PQC algorithm support (openssl.org)",
+          "OpenSSH 10+ – Post-quantum key exchange support (openssh.com)",
+          "Bouncy Castle / Keyfactor – PQC cryptographic library for Java and .NET (bouncycastle.org)",
+          "Open Quantum Safe (liboqs) – C library for quantum-safe cryptographic algorithms (openquantumsafe.org)",
+          "PQCrypto – Post-quantum cryptography library for Rust (crates.io/crates/pqcrypto)"
+        ]},
+        {"h": "Platform and OS references", "c": [
+          "Microsoft – Windows Server 2025 / Windows 11 Schannel PQC support; .NET 10+ CNG integration",
+          "Red Hat – RHEL 9.7+; Apple – macOS Tahoe 26, iOS 26 CryptoKit; Google – Android 17 Verified Boot"
+        ]},
+        {"h": "Industry adoption", "c": [
+          "Cloudflare, Amazon Web Services, Microsoft Azure – hybrid PQC/classical TLS cipher suite deployments",
+          "OpenPGP Working Group – PQC integration roadmap for encrypted file transfer and messaging"
+        ]}
+      ]
+    }
+  ]
+}
